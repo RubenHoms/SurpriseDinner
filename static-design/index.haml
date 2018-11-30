@@ -1,0 +1,92 @@
+!!! 5
+%html
+	%head
+		%title Surprise Dinner &mdash; Feeding Curiosity
+		%script{:src => 'https://use.typekit.net/sve7wui.js'}
+		:javascript
+			try{Typekit.load({ async: true });}catch(e){}
+		%link{:rel => :stylesheet, :type => :"text/css", :href => "style.css"}
+	%body
+		#menubar
+			.container
+				%h1.logo Surprise Dinner
+				%ul.location
+					%li
+						%a{:href => '#'} Groningen
+						%ul.locations
+							%li
+								%a{:href => '#'} Eindhoven
+							%li
+								%a{:href => '#'} Delft &amp; Den Haag
+							%li
+								%a{:href => '#'} Rotterdam
+							%li
+								%a{:href => '#'} Amsterdam
+							%li
+								%a{:href => '#'} Nijmegen
+							%li
+								%a{:href => '#'} Enschede & Hengelo
+							%li
+								%a{:href => '#'} Tilburg
+							%li
+								%a{:href => '#'} Leiden
+							%li
+								%a{:href => '#'} Zwolle
+							%li
+								%a{:href => '#'} Maastricht
+				%ul.menu
+					%li
+						%a{:href => '#'} Hoe het werkt
+					%li
+						%a{:href => '#'} Veelgestelde vragen
+		#leaderbar
+			.container
+				%h2.tagline
+					Feeding curiosity
+				%h2.leader
+					Waar je eet en wat je eet is een verrassing. Jij kiest een thema en prikt een datum. Wij sturen je op ontdekkingstocht en serveren je nieuwe smaken op onbekend(er) terrein.
+					%br/
+					%br/
+					Geef je over, ontdek en geniet!
+		#themebar
+			%a{:name=>"boek-nu"}	
+			.container
+				.theme
+					%h3 Try new things
+					%p
+						Maaike maakt hier nog een tekst. Waar je eet en wat je eet is een verrassing! Jij laat weten wanneer je kan en kiest een thema.
+					%a.boek{:href=>'#'}
+						Boek voor &euro;24,50 per persoon
+				.theme
+					%h3 Surprise me
+					%p
+						Maaike maakt hier nog een tekst. Waar je eet en wat je eet is een verrassing! Jij laat weten wanneer je kan en kiest een thema.
+					%a.boek{:href=>'#'}
+						Boek voor &euro;36,50 per persoon
+				.theme
+					%h3 No reserverations
+					%p
+						Maaike maakt hier nog een tekst. Waar je eet en wat je eet is een verrassing! Jij laat weten wanneer je kan en kiest een thema.
+					%a.boek{:href=>'#'}
+						Boek voor &euro;54,50 per persoon
+			.container{:id=>"yolo"}
+		#howitworks
+			%h3
+				Hoe het werkt
+			.container
+				.step
+					%div{:class => "illustration one"}
+					%p
+						Onze lokale 
+						%a{:href => "#"}curator
+						heeft de beste restaurants voor je geselecteerd.
+				.step
+					%div{:class => "illustration two"}
+					%p
+						Jij kiest een thema en prikt een datum.
+				.step
+					%div{:class => "illustration three"}
+					%p
+						Wij sturen je op ontdekkingstocht en laten je op het laatste moment weten waar je eet.
+				%a.howitworks{:href => "#"} Meer over hoe het werkt
+		#reviewbar		

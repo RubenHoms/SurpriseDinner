@@ -1,0 +1,397 @@
+nl:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Validatie mislukt: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Kan item niet verwijderen omdat %{record} afhankelijk is
+          has_many: Kan item niet verwijderen omdat afhankelijke %{record} bestaan
+      models:
+        booking:
+          attributes:
+            telephone:
+              invalid: is ongeldig.
+        payment:
+          attributes:
+            booking:
+              cannot_create: Deze boeking is al betaald
+
+    models:
+      booking:
+        one: Boeking
+        other: Boekingen
+      package:
+        one: Thema
+        other: Thema's
+      meeting_point:
+        one: Ontmoetingsplek
+        other: Ontmoetingsplekken
+      faq:
+        one: FAQ
+        other: FAQ's
+      package_deal:
+        one: Thema afspraak
+        other: Thema afspraken
+      settlement_batch:
+        one: Betalingsopdracht
+        other: Betalingsopdrachten
+      city:
+        one: Stad
+        other: Steden
+      coupon:
+        one: Kortingscode
+        other: Kortingscodes
+    attributes:
+      booking:
+        at: Datum/tijd
+        date: Datum
+        time: Tijd
+        persons: Aantal personen
+        package: Thema
+        name: Naam
+        email: E-mailadres
+        telephone: Telefoonnummer
+        telephone_normalized: Telefoonnummer
+        notes: Opmerkingen
+        city: Stad
+        notified_at: SMS verstuurd op
+        personal_message: Persoonlijk bericht
+      code:
+        activated_at: Geactiveerd op
+      payment:
+        created_at: Gemaakt op
+        paid_at: Betaald op
+        payment_status: Betalings status
+        amount: Bedrag
+      faq:
+        title: Titel
+        published: Gepubliceerd
+        content: Inhoud
+      package_deal:
+        price: Afgesproken prijs
+        package: Thema
+      scheduled_job:
+        job_name: Naam van opdracht
+        at: Wordt uitgevoerd op
+        args: Parameters
+        created_at: Gemaakt op
+        updated_at: Geüpdate op
+      settlement_batch:
+        name: Naam
+        settled_at: Verwerkt op
+      settlement:
+        booking: Boeking
+        total_amount: Totaal bedrag
+        restaurant_iban: IBAN van restaurant
+      restaurant:
+        name: Naam
+        meeting_point: Ontmoetingsplek
+        image: Foto
+        number_of_packages: Thema afspraken
+        city: Stad
+        full_address: Adres
+        created_at: Gemaakt op
+        updated_at: Geüpdate op
+        iban: IBAN
+        bic: BIC code
+      address:
+        street: Straat
+        street_number: Huisnummer
+        zip_code: Postcode
+        city: Stad
+        country: Land
+        telephone: Telefoonnummer
+        email: E-mailadres
+      package:
+        name: Naam
+        price: Prijs
+        featured: Aanbevolen
+        description: Omschrijving
+        selling_points: Kenmerken
+      meeting_point:
+        name: Naam
+        description: Omschrijving
+        full_address: Adres
+      admin:
+        email: E-mailadres
+        current_sign_in_at: Laatst ingelogd op
+        sign_in_count: Aantal keren ingelogd
+        created_at: Gemaakt op
+      coupon:
+        code: Code
+        discount_percentage: Kortingspercentage
+        expires_at: Verloopdatum
+
+  date:
+    abbr_day_names:
+    - zo
+    - ma
+    - di
+    - wo
+    - do
+    - vr
+    - za
+    abbr_month_names:
+    -
+    - jan
+    - feb
+    - mrt
+    - apr
+    - mei
+    - jun
+    - jul
+    - aug
+    - sep
+    - okt
+    - nov
+    - dec
+    day_names:
+    - zondag
+    - maandag
+    - dinsdag
+    - woensdag
+    - donderdag
+    - vrijdag
+    - zaterdag
+    formats:
+      default: "%d-%m-%Y"
+      long: "%e %B %Y"
+      short: "%e %b"
+    month_names:
+    -
+    - januari
+    - februari
+    - maart
+    - april
+    - mei
+    - juni
+    - juli
+    - augustus
+    - september
+    - oktober
+    - november
+    - december
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ongeveer een uur
+        other: ongeveer %{count} uur
+      about_x_months:
+        one: ongeveer een maand
+        other: ongeveer %{count} maanden
+      about_x_years:
+        one: ongeveer een jaar
+        other: ongeveer %{count} jaar
+      almost_x_years:
+        one: bijna een jaar
+        other: bijna %{count} jaar
+      half_a_minute: een halve minuut
+      less_than_x_minutes:
+        one: minder dan een minuut
+        other: minder dan %{count} minuten
+      less_than_x_seconds:
+        one: minder dan een seconde
+        other: minder dan %{count} seconden
+      over_x_years:
+        one: meer dan een jaar
+        other: meer dan %{count} jaar
+      x_days:
+        one: 1 dag
+        other: "%{count} dagen"
+      x_minutes:
+        one: 1 minuut
+        other: "%{count} minuten"
+      x_months:
+        one: 1 maand
+        other: "%{count} maanden"
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} seconden"
+    prompts:
+      day: dag
+      hour: uur
+      minute: minuut
+      month: maand
+      second: seconde
+      year: jaar
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: moet worden geaccepteerd
+      blank: moet opgegeven zijn
+      present: moet leeg zijn
+      confirmation: komt niet overeen met %{attribute}
+      empty: moet opgegeven zijn
+      equal_to: moet gelijk zijn aan %{count}
+      even: moet even zijn
+      exclusion: is gereserveerd
+      greater_than: moet groter zijn dan %{count}
+      greater_than_or_equal_to: moet groter dan of gelijk zijn aan %{count}
+      inclusion: is niet in de lijst opgenomen
+      invalid: is ongeldig
+      less_than: moet minder zijn dan %{count}
+      less_than_or_equal_to: moet minder dan of gelijk zijn aan %{count}
+      model_invalid: "Validatie mislukt: %{errors}"
+      not_a_number: is geen getal
+      not_an_integer: moet een geheel getal zijn
+      odd: moet oneven zijn
+      required: moet bestaan
+      taken: is al in gebruik
+      too_long:
+        one: is te lang (maximaal %{count} teken)
+        other: is te lang (maximaal %{count} tekens)
+      too_short:
+        one: is te kort (minimaal %{count} teken)
+        other: is te kort (minimaal %{count} tekens)
+      wrong_length:
+        one: heeft onjuiste lengte (moet 1 teken lang zijn)
+        other: heeft onjuiste lengte (moet %{count} tekens lang zijn)
+      other_than: moet anders zijn dan %{count}
+    template:
+      body: 'Er zijn problemen met de volgende velden:'
+      header:
+        one: "%{model} niet opgeslagen: 1 fout gevonden"
+        other: "%{model} niet opgeslagen: %{count} fouten gevonden"
+  helpers:
+    select:
+      prompt: Maak een keuze
+    submit:
+      create: "%{model} toevoegen"
+      submit: "%{model} opslaan"
+      update: "%{model} bijwerken"
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: "."
+      precision: 2
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: miljard
+          million: miljoen
+          quadrillion: biljard
+          thousand: duizend
+          trillion: biljoen
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: byte
+            other: bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " en "
+      two_words_connector: " en "
+      words_connector: ", "
+  time:
+    am: "'s ochtends"
+    formats:
+      default: "%a %d %b %Y %H:%M:%S %Z"
+      long: "%d %B %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: "'s middags"
+
+  # Custom translations
+  booking:
+    persons:
+      one: "1 persoon"
+      other: "%{count} personen"
+
+  # Controllers
+  payments:
+    new:
+      alert: 'Er ging iets mis bij het betalen. Probeer het nog eens.'
+    show:
+      alert: 'Deze betaling bestaat niet.'
+      status:
+        open: 'Er is iets mis gegaan tijdens de betaling, probeer het opnieuw.'
+        cancelled: 'De betaling is geannuleerd, probeer het opnieuw.'
+        pending: 'Wij wachten op de bevestiging van uw betaling, u krijgt bericht zodra wij deze binnen hebben.'
+        expired: 'De betalings aanvraag is verlopen, probeer het opnieuw.'
+        failed: 'De betaling is mislukt door onbekende redenen, probeer het opnieuw.'
+        paid: 'De betaling is geslaagd.'
+        paidout: 'De betaling is geslaagd.'
+        refunded: 'De betaling is teruggestort.'
+        charged_back: 'De betaling is door u terug gevorderd.'
+  activations:
+    update:
+      alert: Deze boeking kan momenteel niet geactiveerd worden
+  bookings:
+    create:
+      error: Kies eerst je stad voordat je verder gaat met boeken
+    show:
+      body_activated: 'De bestemming is bekend!'
+      body_unactivated: Heeft de bestemming nog niet onthuld.
+      title: '%{name} gaat uit eten naar %{to}, %{city}'
+    build:
+      show:
+        no_packages: Er zijn geen thema's voor deze stad gevonden.
+      wat_en_wie:
+        body: De beste restaurants zijn geselecteerd door onze foodcuratoren en worden door ons persoonlijk aan jouw boeking gekoppeld. Kies uit onderstaande thema's en houd er rekening mee dat je alleen voor het eten betaalt. Drankjes worden apart in het restaurant afgerekend.
+  active_admin:
+    dashboard: Dashboard
+    dashboard_content:
+      today:
+        intro: Wat gebeurt er vandaag?
+        bookings_intro: Wie gaan er vandaag op eet avontuur?
+        no_bookings: Helaas! Er gaat vandaag niemand op Surprise Dinner (ARBEITEN ARBEITEN!)
+        booking_description: '%{name} gaat om %{time} met %{persons} personen naar %{restaurant} in %{city}'
+      financial:
+        intro: Financiele cijfers
+        occupation_per_day_of_week:
+          title: Bezetting per dag van de week
+          xtitle: Dag van de week
+          ytitle: Aantal boekingen
+        bookings_in_period:
+          title: 'Boekingen in de periode %{from} t/m %{to}'
+          xtitle: Datum
+          ytitle: Aantal boekingen
+        revenue_per_month:
+          title: Omzet per maand
+          xtitle: Maand
+          ytitle: Omzet
+        best_sold_packages:
+          title: "Best verkochte thema's"
+      city:
+        intro: Stedelijke inzichten
+        bookings_per_city:
+          title: Boekingen per stad
+        restaurants_per_city:
+          title: Aantal restaurants per stad
+        profit_per_city:
+          title: Omzet per stad
+          xtitle: Stad
+          ytitle: Totale omzet

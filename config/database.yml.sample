@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: surprisedinner
+  password: EenhoornPasta01
+
+test:
+  <<: *default
+  database: surprisedinner_test
+
+development:
+  <<: *default
+  database: surprisedinner_development
+
+staging:
+  <<: *default
+  database: surprisedinner_staging
+  username: surprisedinner_staging
+
+production:
+  <<: *default
+  database: surprisedinner_production
+  username: surprisedinner_production

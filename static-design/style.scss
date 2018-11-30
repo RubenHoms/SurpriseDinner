@@ -1,0 +1,311 @@
+@import 'sd-colors';
+@import 'sd-mixins';
+
+$font-sans: "Proxima Nova", "Helvetica Neue", sans-serif;
+$font-serif: "Minion Pro", serif;
+
+$overlap: 140px;
+
+* { -moz-osx-font-smoothing: greyscale; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; cursor: default; }
+
+a
+{
+	cursor: pointer;
+}
+
+#menubar
+{
+	background-color: $color-iron;
+	height: 120px;
+	width: 100%;
+	@include margin-fix;
+	.container
+	{
+		margin: 24px auto 32px;
+	}
+}
+
+#leaderbar
+{
+	background-color: $color-iron;
+	@include margin-fix;
+	background-image: url(images/test-photo.png);
+	background-size: cover;
+	background-position: center center;
+	background-blend-mode: overflow;
+	h2.leader
+	{
+		@include font-size(2.0);
+		color: $color-milk;
+		font-family: $font-sans;
+		font-weight: normal;
+		line-height: 150%;
+		padding: 0 0 120px+$overlap;
+		text-shadow: 0 0 25px $color-iron, 0 0 10px $color-iron;
+		width: 633px;
+	}
+	h2.tagline
+	{
+		@include font-size(4.8);
+		color: $color-milk;
+		font-family: $font-sans;
+		font-weight: normal;
+		line-height: 150%;
+		padding: 0 0 10px;
+		text-shadow: 0 0 25px $color-iron, 0 0 10px $color-iron;
+		margin: 120px 0 20px;
+		width: 633px;
+		border-bottom: 2px solid transparentize($color-chicken,0.95);
+	}
+}
+h1.logo
+{
+	@include background-image(images/logo, png, 202px, 64px);
+	float: left;
+	height: 64px;
+	overflow: hidden;
+	text-indent: 250px;
+	white-space: nowrap;
+	width: 202px;
+}
+.container
+{
+	width: 960px;
+	margin: 0 auto;
+}
+ul.location
+{
+	float: right;
+	font-family: $font-sans;
+	@include font-size(1.8);
+	font-weight: bold;
+	line-height: 64px;
+	li
+	{
+		display: inline-block;
+		margin: 0 0 0 30px;
+		& >	ul.locations
+		{
+			display: none;
+		}
+
+		&:hover > ul.locations
+		{
+			display: block;
+		}
+		a
+		{
+			color: $color-milk;
+			text-decoration: none;
+			padding: 10px 46px 10px 20px;
+			border: 2px solid $color-milk;
+			border-radius: 2px;
+			@include background-image(images/dropdown_normal, png, 12px, 6px);
+			background-repeat: no-repeat;
+			background-position: 122px center;
+			&:hover
+			{
+				color: $color-chicken;
+				border-color: $color-chicken;
+				@include background-image(images/dropdown_hover, png, 12px, 6px);
+				background-color: transparentize($color-chicken,0.95);
+			}
+		}
+		ul.locations
+		{
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			box-shadow: 0 3px 10px rgba(0,0,0,.1), 0 3px 5px rgba(0,0,0,.2);
+			width: 220px;
+			line-height: 44px;
+			border-radius: 2px;
+			background: $color-milk;
+			li
+			{
+				display: block;
+				padding: 0; margin: 0;
+				border-top: 1px solid $color-iron-light * 2.7;
+				a
+				{
+					border: none;
+					padding: 0px 20px;
+					display: block;
+					margin: 0;
+					border-radius: 0;
+					border: none;
+					color: $color-iron-light * 2;
+					background-image: none;
+					background: $color-milk;
+					text-decoration: line-through;
+				}
+			}
+		}
+	}
+}
+ul.menu
+{
+	float: right;
+	font-family: $font-sans;
+	@include font-size(1.8);
+	font-weight: bold;
+	line-height: 64px;
+	li
+	{
+		display: inline-block;
+		margin: 0 0 0 30px;
+		a
+		{
+			color: $color-milk;
+			padding: 10px 0;
+			text-decoration: none;
+			&:hover,&:focus
+			{
+				color: $color-chicken;
+			}
+			&.active
+			{
+				border-bottom: 2px solid $color-milk;
+				color: $color-caesar;
+				cursor: default;
+			}
+		}
+	}
+}
+#themebar
+{
+	margin-top: -$overlap;
+	clear: both;
+	overflow: visible;
+	.container
+	{
+		min-height: 20px;
+		clear: both;
+	}
+	.theme
+	{
+		width: 306px;
+		background: $color-milk;
+		box-shadow: 0 3px 10px rgba(0,0,0,.1), 0 3px 5px rgba(0,0,0,.2);
+		float: left;
+		margin-left: 20px;
+		min-height: 20px + $overlap;
+		@include transition(box-shadow .1s ease-out);
+		h3
+		{
+			font-family: $font-sans;
+			@include font-size(2);
+			text-align:center;
+			color: $color-iron-dark;
+			margin: 20px 20px 10px;
+		}
+		p
+		{
+			font-family: $font-serif;
+			@include font-size(1.6);
+			line-height: 150%;
+			margin: 0 20px 15px;
+		}
+		&:first-child
+		{
+			margin-left: 0;
+		}
+		a.boek
+		{
+			background-color: $color-caesar;
+			display: block;
+			text-align: center;
+			font-family: $font-sans;
+			text-decoration: none;
+			color: $color-iron-dark;
+			height: 60px;
+			font-weight: bold;
+			line-height: 60px;
+			box-shadow: 0 -2px 0 $color-caesar-dark inset;
+			@include transition(box-shadow .133s ease-out);
+			@include font-size(1.6);
+			&:hover
+			{
+				color: $color-milk;
+				box-shadow: 0 -60px 0 $color-caesar-dark inset;
+			}
+		}
+	}
+}
+#howitworks
+{
+	clear: both;
+	margin-top: 20px;
+	overflow: auto;
+	color: $color-iron-dark;
+	h3
+	{
+		clear: both;
+		font-family: $font-sans;
+		@include font-size(2.4);
+		text-align: center;
+		padding: 12px 0;
+		border-color: $color-chicken;
+		border-width: 2px 0;
+		border-style: solid;
+		width: 960px;
+		margin: 0 auto 30px;		
+	}
+	.container
+	{
+		.step
+		{
+			width: 306px;
+			float: left;
+			margin-left: 20px;
+			&:first-child
+			{
+				margin-left: 0;
+			}
+			.illustration
+			{
+				width: 256; height: 192px;
+				margin: 0 auto;
+				background: $color-milk/2;
+			}
+			p
+			{
+				@include font-size(1.6);
+							line-height: 150%;
+
+				padding: 20px;
+				font-family: $font-serif;
+				a
+				{
+					color: $color-cocotte;
+					&:hover, &:focus
+					{
+						color: $color-rust;
+					}
+				}
+			}
+		}
+	a.howitworks
+		{
+			clear: both;
+			background-color: $color-cocotte;
+			display: block;
+			text-align: center;
+			font-family: $font-sans;
+			text-decoration: none;
+			color: $color-milk;
+			height: 60px;
+			width: 306px;
+			margin: 0 auto 20px;
+			font-weight: bold;
+			line-height: 60px;
+			box-shadow: 0 -2px 0 $color-rust inset, 0 3px 10px rgba(0,0,0,.1), 0 3px 5px rgba(0,0,0,.2);
+			@include transition(box-shadow .133s ease-out);
+			@include font-size(1.6);
+			&:hover
+			{
+				box-shadow: 0 -60px 0 $color-rust inset, 0 3px 10px rgba(0,0,0,.1), 0 3px 5px rgba(0,0,0,.2);
+			}
+		}
+	}
+}

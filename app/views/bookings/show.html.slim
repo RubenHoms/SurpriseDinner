@@ -1,0 +1,44 @@
+.col-md-8.col-md-offset-2
+  .personal-booking.text-center
+    .heading
+      h1
+        - if @booking.activated?
+          = t('.title', name: @booking.name, to: @booking.restaurant.name, city: @booking.restaurant.city)
+        - else
+          = @booking.name
+
+      strong
+        - if @booking.activated?
+          = t('.body_activated')
+        - else
+          = t('.body_unactivated')
+
+    - unless @booking.activated?
+      .booking-countdown data-booking-date="#{@booking.at}"
+        span.days
+          span
+          small dagen
+        span.hours
+          span
+          small uren
+        span.minutes
+          span
+          small minuten
+        span.seconds
+          span
+          small seconden
+        h5 totdat de Surprise Dinner begint
+
+    .well
+      - if @booking.activated?
+        = image_tag @booking.restaurant.image(:medium)
+      - else
+        = image_tag 'restaurants/placeholder.jpg'
+
+    .share
+      h4 Deel deze pagina met je vrienden
+      .sharethis-inline-share-buttons
+      = javascript_include_tag '//platform-api.sharethis.com/js/sharethis.js#property=58a8907f20428700112b0277&amp;product=inline-share-buttons'
+
+    h3 Ga ook op eetavontuur.
+    = render 'home/city_select', button_class: 'btn-primary'

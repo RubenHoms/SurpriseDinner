@@ -1,0 +1,32 @@
+= page_heading 'FAQ'
+
+.row
+  .col-md-8
+    h1 Veelgestelde vragen
+    ul.faq-items
+     = render @faqs
+  - cache 'faq-contact-info' do
+    .col-md-4
+      .panel.panel-success.panel-faq
+        .panel-heading
+          h3.panel-title Contact
+
+        .panel-body
+          p Staat je vraag er niet bij? We helpen je graag verder.
+          ul.list-unstyled
+            li
+              = content_tag(:i, nil, class: 'fa fa-phone')
+              | 050 211 2595
+
+            li
+              = content_tag(:i, nil, class: 'fa fa-envelope-o')
+              = link_to 'hallo@surprisedinner.nl', 'mailto:hallo@surprisedinner.nl', title: 'Mail ons'
+            li
+              = content_tag(:i, nil, class: 'fa fa-facebook-square')
+              = link_to 'Stel je vraag via facebook', 'https://www.facebook.com/surprisedinner', target: '_blank', title: 'Facebook'
+
+            li
+              = content_tag(:i, nil, class: 'fa fa-twitter-square')
+              = link_to 'Stel je vraag via twitter', 'https://twitter.com/_surprisedinner', target: '_blank', title: 'Twitter'
+
+          = render 'partials/drift_chat'

@@ -1,0 +1,19 @@
+- cache package do
+  li.col-md-4 data-package="#{package.name.parameterize}"
+    = f.radio_button :package_id, package.id, class: 'package-radio-button'
+    = image_tag package.image(:square)
+
+    .package-details-overlay
+      h4 = package.name
+      p = package.selling_points.to_sentence
+      .price
+        strong
+          = "#{number_to_currency(package.price)} per persoon"
+
+      button.btn.btn-info.btn-select-package type="button" Kies dit thema
+
+    .package-details-bottom
+      button.btn.btn-info.btn-select-package type="button" = package.name
+
+    .package-selected-check
+      i.fa.fa-check-circle

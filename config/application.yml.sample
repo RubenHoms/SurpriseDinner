@@ -1,0 +1,17 @@
+MOLLIE_API_KEY: <api key>
+SMTP_ADDRESS: smtp.mandrillapp.com
+SMTP_DOMAIN: <localhost/url>
+SMTP_PASSWORD: <Mandrill API key>
+SMTP_USERNAME: Surprise Dinner
+SECRET_KEY_BASE: <run 'rake secret'>
+CM_SMS_API_KEY: <CM Telecom API key>
+SLACK_BOOKING_CHANNEL_WEBHOOK: <Slack webhook url>
+GOOGLE_API_KEY: <Google API key>
+SIDEKIQ_USERNAME: username
+SIDEKIQ_PASSWORD: password
+S3_BUCKET_NAME: sd-prod-bucket
+AWS_ACCESS_KEY_ID: <access key>
+AWS_SECRET_ACCESS_KEY: <secret key>
+AWS_REGION: eu-central-1
+LOCKUP_CODEWORD: <only used for staging env>
+LOCKUP_HINT: <only used for staging env>

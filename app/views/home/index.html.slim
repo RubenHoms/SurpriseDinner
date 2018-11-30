@@ -1,0 +1,67 @@
+- cache 'home' do
+  .content-row.text-center
+    .container
+      p.lead.no-margin
+        | <strong>Surprise Dinner</strong> stuurt je op <strong>eet avontuur</strong> en serveert je smaken op onbekender terrein.
+         Met verschillende #{link_to "thema's", '/themas', title: "Thema's"} en een rijk aanbod aan <strong>kwalitatieve restaurants</strong>.
+
+  .content-row.colored
+    .container
+      .row
+        .col-sm-12.text-center
+          h2 Hoe werkt het?
+
+      .row.row-hoe-het-werkt
+        .block.col-sm-4
+          h4
+            span.number 1
+            | Selecteer je stad
+          p
+            = image_tag 'stad-landkaart.png', alt: 'Selecteer je stad'
+            | Selecteer een stad, momenteel kun je kiezen uit Groningen of Leeuwarden.
+
+        .block.col-sm-4
+          h4
+            span.number 2
+            | Kies je thema
+          p
+            = image_tag 'themas-showcase.png', alt: 'Kies je thema'
+            | Vervolgens kies je een thema, elk thema heeft verschillende verrassingen.
+
+        .block.col-sm-4
+          h4
+            span.number 3
+            | Hou je telefoon in de gaten
+          p
+            = image_tag 'sms-telefoon.png', alt: 'Hou je telefoon in de gaten'
+            | Hou je persoonlijke pagina in de gaten en ontvang een sms wanneer jouw avontuur gaat beginnen.
+
+  - if @reviews.any?
+  .content-row.text-center.row-reviews
+    .container
+      .col-md-10.col-md-offset-1.col-sm-12
+        h2 Wat onze avonturiers zeggen
+        .review-slider
+          ul
+            = render @reviews
+
+  .content-row.colored
+    .container
+      .col-sm-6
+        h2 De restaurants zijn zorgvuldig gekozen
+        p Om zo goed mogelijk aan deze belofte te kunnen voldoen maakt Surprise Dinner gebruik van bekende en betrouwbare curatoren (foodbloggers en chefs) die ons lokaal helpen met het selecteren van geschikte en kwalitatieve restaurants.
+      .col-sm-4.text-center.pull-right
+        = image_tag 'curatoren.png', alt: 'Restaurant curatoren'
+
+  .content-row.text-center
+    .container
+      h2 Surprise Dinner in de media
+      = image_tag 'logos-zoals-gezien.png', alt: 'Surprise Dinner in de media'
+
+.content-row.text-center.colored
+  .container
+    h2 Durf jij je over te geven aan het onbekende?
+    p.lead Aan nieuwe smaken en onverwachte ontdekkingen?
+    = render 'city_select', button_class: 'btn-primary'
+
+= render 'partials/drift_chat'

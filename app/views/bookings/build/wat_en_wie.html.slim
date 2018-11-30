@@ -1,0 +1,28 @@
+= page_heading 'Wat en wie?'
+
+= wizard_navigation
+= errors_for @booking
+= simple_form_for @booking, url: wizard_path, method: :put do |f|
+  h3 Kies een thema
+  p = t('.body')
+  ul.packages.no-gutter
+    = render partial: 'package', collection: @packages, locals: { f: f }
+
+  h3 Wanneer en met wie
+  - unless @booking.city.bookable?
+    .alert.alert-info
+      | In deze stad kun je boeken
+      strong = " vanaf #{l(@booking.city.bookable_from, format: '%e %B %Y')}"
+
+  .row
+    .col-sm-6
+      .form-group
+        = f.input :date, as: :string, input_html: { class: 'form-control datepicker', 'data-bookable-from': (@booking.city.bookable_from.to_date unless @booking.city.bookable?) }, placeholder: 'Kies een datum'
+    .col-sm-6
+      .form-group
+        = f.input :time, as: :string, input_html: { class: 'form-control timepicker' }, placeholder: 'Kies een tijd (minimaal 3 uur van tevoren)'
+
+  .form-group
+    = f.input :persons, collection: 1..10, input_html: { class: 'selectpicker form-control' }, prompt: 'Kies het totaal aantal personen waarmee je uit eten wilt'
+
+  = f.submit 'Verder', class: 'btn btn-primary'

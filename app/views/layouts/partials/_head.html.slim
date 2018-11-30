@@ -1,0 +1,13 @@
+head
+  = stylesheet_link_tag 'application', media: 'all', cache: true
+  meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  meta name="viewport" content="width=device-width, initial-scale=1" /
+  meta name="description" content="Surprise Dinner stuurt je op eet avontuur en serveert je smaken op onbekend terrein. Met diverse thema's en een rijk aanbod aan kwalitatieve restaurants." /
+  = csrf_meta_tags
+
+  link href="https://surprisedinner.nl/" rel="canonical"
+  link rel="alternate" href="http://surprisedinner.nl" hreflang="nl-nl"
+
+  title = page_title
+
+  = render 'layouts/partials/favicon'

@@ -1,0 +1,21 @@
+- cache package do
+  li.no-gutter class="#{cycle('odd', 'even')}" id="#{package.name.parameterize}"
+    .col-md-4.package-image
+      = image_tag package.image.url(:square), alt: package.name
+      = link_to 'Boek dit thema', '#booking-cta', class: 'btn btn-info btn-sm slow-scroll', title: 'Boek dit thema'
+
+    .col-md-8.package-data
+      .package-tabs
+        ul
+          li = link_to 'Omschrijving', "#package#{package.id}-details", title: 'Omschrijving'
+          li = link_to 'Praktische informatie', "#package#{package.id}-info", title: 'Praktische informatie'
+
+        .package-content
+          h3 = "#{package.name} (&euro;#{number_with_precision(package.price, precision: 2)})".html_safe
+          div id="package#{package.id}-details"
+            = package.description
+
+          div id="package#{package.id}-info"
+            ul
+              - package.selling_points.each do |selling_point|
+                li = selling_point

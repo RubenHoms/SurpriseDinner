@@ -1,0 +1,265 @@
+ul.nav-order-wizard
+  background-color: #f9f9f9
+  border: 1px solid $secondary-color
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  *zoom: 1
+  position: relative
+  overflow: hidden
+  margin-bottom: 40px
+
+  &:before
+    display: block
+    position: absolute
+    left: 0px
+    right: 0px
+    top: 46px
+    height: 47px
+    border-top: 1px solid #d4d4d4
+    border-bottom: 1px solid #d4d4d4
+    z-index: 11
+    content: " "
+
+  &:after
+    display: block
+    position: absolute
+    left: 0px
+    right: 0px
+    top: 138px
+    height: 47px
+    border-top: 1px solid #d4d4d4
+    border-bottom: 1px solid #d4d4d4
+    z-index: 11
+    content: " "
+
+  li
+    background: $secondary-color-lighter-20
+    position: relative
+    float: left
+    height: 46px
+    display: inline-block
+    text-align: middle
+    padding: 0 20px 0 30px
+    margin: 0
+    font-size: 16px
+    line-height: 46px
+
+    a
+      color: $white-color
+      padding: 0
+
+      &:hover
+        background-color: transparent
+
+    &:before
+      position: absolute
+      display: block
+      border: 24px solid transparent
+      border-left: 16px solid $secondary-color
+      border-right: 0
+      top: -1px
+      z-index: 10
+      content: ''
+      right: -16px
+
+    &:after
+      position: absolute
+      display: block
+      border: 24px solid transparent
+      border-left: 16px solid $secondary-color-lighter-20
+      border-right: 0
+      top: -1px
+      z-index: 10
+      content: ''
+      right: -15px
+
+    &.active
+      color: $white-color
+      background: $secondary-color-lighter-30
+
+      &:after
+        border-left: 16px solid $secondary-color-lighter-30
+
+      a
+        color: $white-color
+        background: $secondary-color-lighter-30
+
+        &:active, &:visited, &:focus, &:hover
+          color: $white-color
+          background: $secondary-color-lighter-30
+
+  .active ~ li
+    color: #999999
+    background: $white-color
+
+    &:after
+      border-left: 16px solid $white-color
+
+    a
+      color: #999999
+      background: $white-color
+
+      &:active, &:visited, &:focus
+        color: #999999
+        background: $white-color
+
+  &.nav-wizard-backnav
+    li:hover
+      color: #468847
+      background: #f6fbfd
+
+      &:after
+        border-left: 16px solid #f6fbfd
+
+      a
+        color: #468847
+        background: #f6fbfd
+
+        &:active, &:visited, &:focus
+          color: #468847
+          background: #f6fbfd
+
+    .active ~ li
+      color: #999999
+      background: #ededed
+
+      &:after
+        border-left: 16px solid #ededed
+
+      a
+        color: #999999
+        background: #ededed
+
+        &:active, &:visited, &:focus
+          color: #999999
+          background: #ededed
+
+.packages
+  list-style-type: none
+  margin: 0 0 40px
+  padding: 0
+  overflow: hidden
+  position: relative
+
+  > li
+    cursor: pointer
+    overflow: hidden
+    border: 4px solid #f5f5f5
+    background: #f5f5f5
+
+    img
+      width: 100%
+
+    .package-radio-button
+      display: none
+
+    .package-details-bottom
+      position: absolute
+      bottom: 50px
+      width: 100%
+
+    .package-details-overlay
+      opacity: 0
+      background: $primary-color
+      color: $white-color
+      position: absolute
+      text-align: center
+      padding: 50px 30px
+      left: 0
+      right: 0
+      top: 0
+      bottom: 40px
+      cursor: pointer
+
+    .btn
+      position: absolute
+      width: 60%
+      left: 20%
+      bottom: 30px
+
+    &:hover
+      .package-details-overlay
+        opacity: 1
+
+      .package-details-bottom
+        opacity: 0
+
+    .price
+      font-weight: bold
+      font-size: 18px
+      margin-bottom: 20px
+
+      strong
+        margin-right: 3px
+
+  .package-selected-check
+    opacity: 0
+    background: $primary-color
+    height: 40px
+    line-height: 40px
+    text-align: center
+
+    .fa
+      font-size: 18px
+      color: #fff
+
+.payment-cta
+  margin-bottom: 40px
+
+.payment-notice
+  img
+    margin-right: 20px
+
+  .glyphicon
+    margin-right: 5px
+    font-size: 12px
+
+.personal-booking
+  .heading
+    h1
+      margin-bottom: 20px
+
+    strong
+      display: block
+      font-weight: bold
+      font-size: 28px
+      margin-bottom: 40px
+
+  .share
+    margin-bottom: 80px
+
+  .booking-countdown
+    margin-bottom: 40px
+
+    span
+      display: inline-block
+      margin: 0 4px 10px
+
+      > span
+        width: 60px
+        height: 60px
+        line-height: 60px
+        text-align: center
+        background: $primary-color
+        color: #fff
+        font-size: 20px
+        -webkit-border-radius: 3px
+        -moz-border-radius: 3px
+        border-radius: 3px
+        margin-bottom: 5px
+
+    small
+      display: block
+
+.stitched
+  padding: 20px
+  margin: 10px
+  background: #ff5400
+  color: #fff
+  font-size: 21px
+  line-height: 1.3em
+  border: 2px dashed #fff
+  border-radius: 10px
+  box-shadow: 0 0 0 4px #ff5400, 2px 1px 6px 4px rgba(10, 10, 0, 0.5)
+  text-shadow: -1px -1px #aa3030

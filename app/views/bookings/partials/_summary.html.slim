@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    h3.panel-title Jouw boeking
+
+  .panel-body
+    - if @booking.completed_or_wat_en_wie_step_done?
+      h5 Wat en wie
+      ul.list-unstyled
+        li = "#{@booking.package.name} met #{@booking.persons} personen"
+        li = "Op #{@booking.date} om #{@booking.time}"
+
+    - if @booking.completed_or_contactgegevens_step_done?
+      h5 Jouw gegevens
+      ul.list-unstyled
+        li = @booking.name
+        li = @booking.email

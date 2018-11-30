@@ -1,0 +1,33 @@
+nav
+  &.navbar
+    font-family: Montserrat, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+  @media (max-width: $screen-xs-max)
+    .navbar-brand
+      padding: 20px 15px
+
+  @media (min-width: $screen-md-min)
+    .navbar-brand
+      padding: 18px 15px
+
+    &.navbar-static-top
+      .navbar-nav
+        li
+          a
+            display: block
+            padding: 28px 20px
+
+          &.home
+            a
+              span
+                text-indent: -999em
+                display: inline-block
+                background: image-url('home-icon.png') no-repeat
+                height: 16px
+                width: 16px
+                margin-top: -2px
+                vertical-align: middle
+
+              &.active
+                span
+                  background-position: bottom

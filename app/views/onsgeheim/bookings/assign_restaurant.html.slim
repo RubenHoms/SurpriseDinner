@@ -1,0 +1,6 @@
+= semantic_form_for [:onsgeheim, @booking] do |f|
+  = f.inputs 'Restaurant' do
+    = f.input :restaurant, collection: restaurant_with_package_deal_price(@suitable_restaurants, @booking.package)
+  = f.inputs 'Persoonlijk bericht - deze wordt getoond bij de onthulling' do
+    = f.input :personal_message
+  = f.actions

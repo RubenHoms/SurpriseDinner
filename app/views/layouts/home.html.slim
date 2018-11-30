@@ -1,0 +1,30 @@
+doctype html
+html
+  = render 'layouts/partials/head'
+
+  body.home
+    = flash_messages
+    = render 'layouts/partials/navigation'
+
+    .jumbotron.jumbotron-hero
+      .container
+        .row
+          .col-md-10.col-md-offset-1
+            .row
+              .col-md-8.col-md-offset-2.col-sm-12
+                h1 Waar en wat je eet is een verrassing
+
+            p.lead Jij kiest het thema en prikt een datum. Wij sturen je op ontdekkingstocht en serveren je nieuwe smaken op onbekend(er) terrein.
+            = render 'city_select', button_class: 'btn-primary'
+
+    .container.packages-homepage
+      .row
+        .col-md-12
+          ul.packages-grid
+            = render partial: 'package', collection: @packages
+
+    main.without-spacing
+      = yield
+
+    = render 'layouts/partials/footer'
+    = javascript_include_tag 'application'

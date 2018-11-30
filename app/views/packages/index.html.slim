@@ -1,0 +1,17 @@
+= page_heading 'Themas'
+
+.container
+  .col-md-10.col-md-offset-1
+    .content-row.text-center
+      h1 Thema's
+      p.lead.no-margin Surprise Dinner stuurt je op eetavontuur en serveert je smaken op onbekender terrein. Met verschillende thema’s en een rijk aanbod aan kwalitatieve restaurants.
+
+    ul.packages-list
+      = render @packages
+
+.content-row.colored.text-center id="booking-cta"
+  .container
+    h3 Ga op eetavontuur.
+    = render 'home/city_select', button_class: 'btn-primary'
+
+= render 'partials/drift_chat'

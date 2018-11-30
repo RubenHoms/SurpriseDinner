@@ -1,0 +1,11 @@
+Metrics/LineLength:
+  Max: 100
+Documentation:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'spec/**/*'
+    - 'config/locales/**/*'

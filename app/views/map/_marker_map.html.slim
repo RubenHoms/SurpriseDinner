@@ -1,0 +1,19 @@
+= render 'map/js_includes'
+javascript:
+  var handler = Gmaps.build('Google');
+  handler.buildMap({internal: {id: 'map'}}, function () {
+    markers = handler.addMarkers([
+      {
+        lat: "#{{location.latitude}}",
+        lng: "#{{location.longitude}}",
+        infowindow: "#{{location.name}}",
+        "picture": {
+          "url": "#{image_path('logo.png')}",
+          "width": 50,
+          "height": 50
+        }
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });

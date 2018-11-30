@@ -1,0 +1,85 @@
+.home
+  .row-hoe-het-werkt
+    .block
+      h4
+        margin-bottom: 20px
+
+        span.number
+          -webkit-border-radius: 999px
+          -moz-border-radius: 999px
+          background: $primary-color
+          border-radius: 999px
+          display: inline-block
+          height: 36px
+          line-height: 36px
+          margin-right: 10px
+          text-align: center
+          width: 36px
+
+      img
+        float: right
+        margin-left: 15px
+        max-width: 150px
+
+  .row-reviews
+    blockquote
+      color: $grey-color
+      border-left: 0
+      padding: 0
+
+    .unslider-nav li
+      border-color: $grey-color
+
+      &.unslider-active
+        background: $grey-color
+
+  @media (min-width: $screen-md-min)
+    .alert
+      margin-bottom: 0
+
+    .navbar
+      background: none
+      border: 0
+
+    .jumbotron.jumbotron-hero
+      text-align: center
+      background: image-url('home-bg.jpg')
+      background-size: cover
+      height: 650px
+      padding-top: 158px
+      margin-top: -80px
+      color: #fff
+      margin-bottom: 0
+
+      h1
+        font-size: 62px
+        margin-bottom: 40px
+
+      .lead
+        margin-bottom: 20px
+
+    .content-row
+      p.lead
+        font-size: 32px
+
+    .packages-homepage
+      margin-top: -116px
+
+      .packages
+        margin-bottom: 0
+
+    .row-reviews
+      li
+        text-align: left
+
+      blockquote
+        font-size: 18px
+
+      em
+        color: $grey-color
+
+  @media (max-width: $screen-md-min)
+    .row-reviews
+      li
+        img
+          margin-bottom: 20px

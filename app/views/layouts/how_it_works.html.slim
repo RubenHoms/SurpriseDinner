@@ -1,0 +1,7 @@
+doctype html
+html.how-it-works
+  = render 'layouts/partials/head'
+  body.how-it-works
+    = render 'layouts/partials/navigation'
+    = yield
+    = javascript_include_tag 'application'

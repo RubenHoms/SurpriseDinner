@@ -1,0 +1,12 @@
+doctype html
+html
+  = render 'layouts/partials/head'
+
+  body
+    = render 'layouts/partials/navigation'
+
+    main.without-spacing
+      = yield
+
+    = render 'layouts/partials/footer'
+    = javascript_include_tag 'application'

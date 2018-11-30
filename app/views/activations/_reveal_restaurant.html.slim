@@ -1,0 +1,17 @@
+.restaurant-revealed
+  = image_tag @restaurant.image.url(:medium)
+  .restaurant-details
+    h1 = @restaurant.name
+    ul.list-unstyled
+      li = @restaurant.address.decorate.readable
+      li = @restaurant.address.city
+
+    - if @booking.personal_message.present?
+      h5
+        strong Persoonlijke boodschap van Surprise Dinner:
+      p.personal-message = @booking.personal_message
+
+    p
+      strong = "Je wordt om #{@booking.time} verwacht"
+
+    = link_to 'Routebeschrijving', @restaurant.address.decorate.maps_url, class: 'btn btn-primary btn-full-width', target: '_blank'

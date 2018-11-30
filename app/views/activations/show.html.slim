@@ -1,0 +1,6 @@
+= page_heading 'Onthulling'
+
+- if @code.activated?
+  = render 'reveal_restaurant'
+- else
+  = render 'activate_code'

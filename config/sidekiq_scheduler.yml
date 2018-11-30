@@ -1,0 +1,5 @@
+create_settlement_batch_job:
+  cron: "0 0 * * * Europe/Amsterdam"
+  class: CreateSettlementBatchJob
+  queue: default
+  description: "This job creates the settlement batch for the previous day."

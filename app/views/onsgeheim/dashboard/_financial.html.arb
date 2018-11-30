@@ -1,0 +1,31 @@
+panel i18n_context 'financial.intro' do
+  columns do
+    column do
+      panel i18n_context 'financial.occupation_per_day_of_week.title' do
+        column_chart Booking.completed.group_by_day_of_week(:at, format: '%a').count,
+                     xtitle: i18n_context('financial.occupation_per_day_of_week.xtitle'),
+                     ytitle: i18n_context('financial.occupation_per_day_of_week.ytitle')
+      end
+    end
+    column do
+      panel i18n_context('financial.bookings_in_period.title',
+                         from: 1.month.ago.to_date, to: Date.today) do
+        line_chart bookings_in_previous_month,
+                   xtitle: i18n_context('financial.bookings_in_period.xtitle'),
+                   ytitle: i18n_context('financial.bookings_in_period.ytitle')
+      end
+    end
+    column do
+      panel i18n_context 'financial.revenue_per_month.title' do
+        column_chart profit_per_month,
+                     xtitle: i18n_context('financial.revenue_per_month.xtitle'),
+                     ytitle: i18n_context('financial.revenue_per_month.ytitle')
+      end
+    end
+    column do
+      panel i18n_context 'financial.best_sold_packages.title' do
+        pie_chart best_selling_packages, donut: true
+      end
+    end
+  end
+end

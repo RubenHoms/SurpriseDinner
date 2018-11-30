@@ -1,0 +1,39 @@
+.content-row.restaurant-header
+  .container
+    .col-md-5.restaurant-intro-text
+      h1 Laat avontuurlijke gasten ook jouw restaurant ontdekken.
+      p Verwelkom Surprise Dinner gasten en laat je restaurant groeien!
+      = mail_to 'hallo@surprisedinner.nl', 'Meld je aan', class: 'btn restaurant-signup'
+    .col-md-7.restaurant-image-box
+      = image_tag 'restaurant_info/header-logo.png', class: 'restaurant-intro-img'
+
+.content-row.restaurant-advantages
+  .container
+    .row
+      .col-sm-12
+        .intro-text Waarom het zo leuk is om restaurateur bij Surprise Dinner te zijn.
+
+    .row
+      .col-md-4
+        = image_tag 'restaurant_info/counting-money.png'
+        p.header-text Extra inkomsten & gegarandeerde omzet
+        p.text Voordat de gasten binnenkomen heb je al een gegarandeerde minimale omzet te pakken. Alles wat daarbovenop komt is extra!
+
+      .col-md-4
+        = image_tag 'restaurant_info/happy-customers.png'
+        p.header-text Nieuwe gasten
+        p.text Verwelkom nieuwe gasten die via eigen kanalen niet bereikt zullen worden. Onze gasten staan open om verrast te worden en staan open voor nieuwe eetbelevingen. Overtuig ze van begin tot eind waarom zij bij jou terug moeten komen.
+
+      .col-md-4
+        = image_tag 'restaurant_info/happy-restaurant-owner.png'
+        p.header-text Geen maandelijkse kosten
+        p.text Geen gasten ontvangen, dan ook geen kosten. Binnen 24-uur na reservering wordt de boeking automatisch overgeboekt. Transparant en wel zo gemakkelijk.
+
+.content-row.restaurant-image-footer
+  .container
+    .col-md-offset-6.col-sm-6.signup-container
+      p.header-text Overtuigd van eigen kwaliteiten?
+      p.text Bij aanmelding beoordelen onze foodcuratoren of je restaurant geschikt is volgens onze kwaliteitscriteria. Het doel van deze screening is om een succesvolle samenwerking voor beide partijen te garanderen. Waar wacht je nog op?
+      = mail_to 'hallo@surprisedinner.nl', 'Meld je aan', class: 'btn restaurant-signup'
+
+= render 'partials/drift_chat'

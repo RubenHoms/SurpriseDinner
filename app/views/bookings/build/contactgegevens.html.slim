@@ -1,0 +1,18 @@
+= page_heading 'Contactgegevens'
+
+= wizard_navigation
+= errors_for @booking
+= simple_form_for @booking, url: wizard_path, method: :put do |f|
+  h3 Je gegevens
+  .form-group
+    .row
+      .col-sm-6 = f.input :name
+      .col-sm-6 = f.input :email
+      .col-sm-6 = f.input :telephone
+
+  h3 Waar we rekening mee moeten houden
+  .form-group
+    = f.input :notes, input_html: { class: 'form-control' }, label: false, placeholder: 'Vul bijvoorbeeld allergiën, restaurants waar je niet wilt zitten of andere opmerkingen in'
+
+  = link_to 'Terug', previous_wizard_path, class: 'btn btn-default'
+  = f.submit 'Verder', class: 'btn btn-primary'

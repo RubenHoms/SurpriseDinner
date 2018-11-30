@@ -1,0 +1,13 @@
+javascript:
+  var bugmuncher_options = {
+      language: "nl",
+      background_color: "#ff5400",
+      api_key: "b9eba89c8a8e84a8c6ac"
+  };
+  (function(){
+      var e = document.createElement("script");
+      e.setAttribute("type", "text/javascript");
+      var d = new Date(); var n = '?'+d.getFullYear()+(d.getMonth()+1)+d.getDate()+d.getHours();
+      e.setAttribute("src", "//cdn.bugmuncher.com/bugmuncher.js"+n);
+      document.getElementsByTagName("head")[0].appendChild(e);
+  })();

@@ -1,0 +1,43 @@
+= page_heading 'Boeking afronden'
+
+= wizard_navigation
+h2 Jouw boeking
+.well
+  h4 Controleer je even of alles klopt?
+  ul.list-checkbox
+    li = "#{@booking.name} gaat in totaal met #{t('booking.persons', count: @booking.persons)} uit eten in #{@booking.city.name}"
+    li = "Je hebt gekozen voor het thema '#{@booking.package.name}' (€#{'%.2f' % @booking.package.price} p.p.)"
+    li = "Dit is op #{@booking.date} om #{@booking.time}"
+    li = "Je bent te bereiken op #{@booking.email} en #{@booking.telephone}"
+    - if @booking.coupon
+      li = "Je krijgt #{@booking.coupon.discount_percentage}% korting met de kortingscode #{@booking.coupon.code}"
+
+  .payment-cta
+    = link_to 'Ja, alles klopt. Naar betalen', new_booking_payment_path(@booking.token), class: 'btn btn-primary'
+    = link_to 'Gegevens aanpassen', previous_wizard_path, class: 'btn btn-link'
+
+  .payment-notice
+    = image_tag 'banklogos.png'
+    span.glyphicon.glyphicon-lock
+    small Je betaling wordt veilig verwerkt door onze betalingsprovider Mollie
+
+- if @booking.coupon
+  .row
+    .col-sm-2
+    .col-sm-8.text-center
+      .stitched = "#{@booking.coupon.code} (#{@booking.coupon.discount_percentage}% korting)"
+    .col-sm-2
+- else
+  = simple_form_for [@booking, @coupon_redemption] do |f|
+    .row
+      .col-sm-2
+      .col-sm-8
+        .stitched
+          h4 Heb je een kortingscode?
+          .input-group
+            = f.input :coupon, label: false, required: false
+            span.input-group-btn
+              button.btn.btn-default type='submit' Toevoegen
+      .col-sm-2
+h4 En dan?
+p Nadat je je bestelling hebt betaald ontvang je hiervan een bevestiging van ons. Je ontvangt uiterlijk in de week dat je uit eten gaat een e-mail met verdere instructies. Op de dag zelf ontvang je een SMS waarmee je je bestemming kunt onthullen.

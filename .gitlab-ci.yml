@@ -1,0 +1,41 @@
+stages:
+- test
+- deploy
+
+rspec:
+  script:
+    - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    - \curl -sSL https://get.rvm.io | bash -s stable --ruby
+    - source ~/.rvm/scripts/rvm
+    - rvm install ruby-2.2.5
+    - export PATH=$PATH:$HOME/.rvm/bin
+    - rvm use 2.2.5
+    - export RAILS_ENV=test
+    - mkdir tmp
+    - gem install bundle
+    - cp config/application.yml.sample config/application.yml
+    - cp config/database.yml.sample config/database.yml
+    - touch log/application.log
+    - touch log/test.log
+    - bundle install
+    - bundle exec rake db:drop
+    - bundle exec rake db:create
+    - rspec
+  stage: test
+  allow_failure: false
+
+deploy_to_staging:
+  script:
+    - export PATH=$PATH:/home/staging/.rvm/gems/ruby-2.2.1/bin:/home/staging/.rvm/gems/ruby-2.2.1@global/bin:/home/staging/.rvm/rubies/ruby-2.2.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/staging/.rvm/bin:/home/staging/.rvm/bin:/home/staging/.rvm/bin:/home/staging/.rvm/bin:/home/staging/.rvm/bin:/home/staging/.rvm/bin
+    - source ~/.bash_profile
+    - bundle install
+    - bundle exec cap staging deploy
+  stage: deploy
+  only:
+    - develop
+  allow_failure: false
+  environment: staging
+
+pronto:
+  script:
+    - PRONTO_GITLAB_API_ENDPOINT="https://gitlab.surprisedinner.nl/api/v3/" PRONTO_GITLAB_API_PRIVATE_TOKEN=AhJAFxYj9ZyjDec-MtnD pronto run -f gitlab -c origin/master

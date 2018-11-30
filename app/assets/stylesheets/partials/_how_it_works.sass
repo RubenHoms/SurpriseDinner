@@ -1,0 +1,300 @@
+@import 'bourbon'
+
+/*==========  Global  ==========*/
+
+$centered-content-width: 1024px
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix_mixin
+  *zoom: 1
+
+  &:before,
+  &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
+/*==========  Basics  ==========*/
+
+$body-background: #f5f5f5
+
+html.how-it-works, body.how-it-works
+  height: 100%
+body.how-it-works
+  background: $body-background
+  margin: 0px
+  padding: 0px
+  font-size: 15px
+  line-height: 26px
+  color: #353b51
+  font-family: $font-family-sans-serif
+  overflow-x: hidden
+  overflow-y: scroll
+
+a.how-it-works
+  color: #B9CFD0
+  text-decoration: none
+  border-bottom: 1px solid #B9CFD0
+
+/*==========  Sections  ==========*/
+
+$header-background: #f5f5f5
+.how-it-works-header
+  text-align: center
+  position: relative
+  z-index: 1
+  background-image: linear-gradient(to bottom,  #f5f5f5, $header-background 100%)
+
+  .master-head
+    padding: 7% 30px
+
+  .page-title
+    padding: 0 30px 0 30px
+    font-size: 60px
+    font-weight: bold
+    line-height: 1em
+    letter-spacing: 10px
+    color: #353b51
+
+  .page-description
+    margin: 30px auto
+    width: 924px
+    font-size: 23px
+    line-height: 2em
+    color:  #818387
+
+  .scroll-button
+    border-radius: 5px
+    background-color: #e66613
+    font-size: 16px
+    color: #FFF
+    padding: 15px 20px 15px 20px
+    display: inline-block
+    cursor: pointer
+    @include transition-duration(.4s)
+    @include user-select(none)
+
+    &:hover
+      background: darken(#3093A2, 10%)
+    &:active
+      background: darken(#3093A2, 20%)
+
+.main-content
+  margin: 0px auto
+  position: relative
+
+  .section-inner, .post-wrapper
+    @include clearfix_mixin
+
+.how-it-works-footer
+  background: $body-background
+  padding: 150px 0px 150px 0px
+  position: relative
+  z-index: 1
+
+  .good-bye
+    text-align: center
+    font-size: 18px
+    line-height: 36px
+
+    p
+      display: block
+      margin: 0px auto 30px auto
+      max-width: 300px
+      clear: both
+
+.section
+  .section-inner
+    margin: 0px auto
+    width: $centered-content-width
+
+    @media only screen
+      width: auto
+      max-width: $centered-content-width
+
+/*==========  Stem  ==========*/
+
+$stem-width: 60px
+$stem-default-glow: $primary-color-lighter-10
+.stem-wrapper
+  position: fixed
+  top: 0px
+  bottom: 0px
+  left: 50%
+
+  &.color-yellow .stem-background
+    background: #E9E566
+  &.color-green .stem-background
+    background: #35C189
+  &.color-white .stem-background
+    background: #FFF
+
+  .stem, .stem-background
+    position: absolute
+    top: 0px
+    left: -($stem-width / 2)
+    width: $stem-width
+  .stem
+    background: #f5f5f5
+    height: 100%
+  .stem-background
+    background: $stem-default-glow
+    height: 50%
+    @include transition-duration(.5s)
+
+
+.stem-padding, .single-stem-icon
+  width: $stem-width
+  height: $stem-width // Override with inline styling
+  margin: 0px auto
+  background: transparent image_url('how_it_works/stem-mask.png') repeat-y top center
+
+.single-stem-icon.scroll-to-top
+  cursor: pointer
+  background-image: image_url('how_it_works/scroll-to-top-icon.png')
+
+/*==========  Post wrapper ==========*/
+
+.post-wrapper
+
+  $post-stem-padding: 80px
+  $post-width: ($centered-content-width/2) - $post-stem-padding
+
+  @include clearfix_mixin
+
+  .post
+    position: relative
+    width: $post-width
+    clear: both
+    opacity: 1
+    border-radius: 25px
+    background: #32303a
+
+    @include perspective(1000px)
+
+    .post-content
+      margin: 25px
+      color: #ffffff
+
+    &.hidden .post-content
+      @include transform(translateY(100px) rotateX(30deg))
+      opacity: 0
+
+    &:hover .post-content, &.active .post-content
+      opacity: 1
+      .meta
+        opacity: 1
+        @include transform(none)
+
+    &:nth-child(even)
+      float: right
+      text-align: left
+    &:nth-child(odd)
+      float: left
+      text-align: right
+
+    &:nth-child(even) .stem-overlay
+      left: -110px
+    &:nth-child(odd) .stem-overlay
+      right: -110px
+
+    &.step1-icon .stem-overlay .icon
+      background-image: image_url('how_it_works/step1.png')
+    &.step2-icon .stem-overlay .icon
+      background-image: image_url('how_it_works/step2.png')
+    &.step3-icon .stem-overlay .icon
+      background-image: image_url('how_it_works/step3.png')
+    &.step4-icon .stem-overlay .icon
+      background-image: image_url('how_it_works/step4.png')
+    &.step5-icon .stem-overlay .icon
+      background-image: image_url('how_it_works/step5.png')
+    &.step6-icon .stem-overlay .icon
+      background-image: image_url('how_it_works/step6.png')
+    .stem-overlay
+      position: absolute
+      top: 0px
+      bottom: 0px
+      width: $stem-width
+
+      .icon
+        background: transparent no-repeat center center
+        height: $stem-width
+        width: $stem-width
+        cursor: pointer
+
+      .stem-mask
+        position: absolute
+        top: $stem-width
+        bottom: 0px
+        left: 0px
+        right: 0px
+        background: transparent image_url('how_it_works/stem-mask.png') repeat-y top center
+
+    .post-content
+      opacity: .3
+      @include transition-duration(.4s)
+      @include transform(none)
+
+      .meta
+        color: rgba(255,255,255,.3)
+        margin: 0px 0px 15px 0px
+        letter-spacing: 1px
+        opacity: 0
+        @include transition-duration(1s)
+        @include transition-delay(.2s)
+        @include transform(translateY(-5px))
+
+      .post-title
+        font-size: 24px
+        line-height: 42px
+        color: #d1711d
+        margin: 0px 0px 15px 0px
+
+/*==========  Media queries  ==========*/
+
+@media only screen and (max-width: 1080px)
+
+  .main-content
+    &, .section-inner
+      max-width: none
+
+  .stem-wrapper
+    left: 80px
+
+  .stem-padding, .single-stem-icon
+    margin: 0px
+    float: left
+    margin-left: 50px
+
+  .post-wrapper .post
+
+    // To add extra weight to the selector
+    &, &:nth-child(even), &:nth-child(odd)
+      width: auto
+      margin-left: 110px
+      float: none
+
+      .stem-overlay
+        left: -60px
+        right: auto
+
+    .post-content
+      padding: 0px 50px
+
+@media only screen and (max-width: 700px)
+
+  .how-it-works-header .page-title
+    font-size: 40px
+
+  .post-wrapper .post
+    margin-left: 90px !important
+
+    .post-content
+      padding: 0 25px
+
+  .stem-wrapper
+    left: 60px
+
+  .stem-padding, .single-stem-icon
+    margin-left: 30px

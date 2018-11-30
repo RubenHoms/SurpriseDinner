@@ -1,0 +1,17 @@
+doctype html
+html
+  = render 'layouts/partials/head'
+
+  body
+    = render 'layouts/partials/navigation_clean'
+
+    main
+      .container
+        .row
+          .col-sm-10.col-sm-offset-1
+            = flash_messages
+            = yield
+
+    = render 'layouts/partials/footer', minimal: true
+    = javascript_include_tag 'application'
+    = content_for :footer_scripts

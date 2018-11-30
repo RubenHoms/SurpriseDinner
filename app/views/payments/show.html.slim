@@ -1,0 +1,18 @@
+= page_heading 'Betaling'
+
+- if @booking.paid?
+  h1 Betaling is geslaagd
+  .alert.alert-success
+    span.glyphicon.glyphicon-ok
+    | Je betaling is succesvol verwerkt. Je ontvangt zometeen een e-mail van ons met een bevesting van je bestelling.
+
+  h4 En nu?
+  p Je ontvangt uiterlijk in de week dat je uit eten gaat een e-mail met verdere instructies. Op de dag zelf ontvang je een SMS waarmee je je bestemming kunt onthullen.
+  - content_for :footer_scripts do
+    = render partial: 'analytics/ecommerce', locals: { booking: @booking }
+- else
+  h1 Betaling is mislukt
+  p = "Neem contact met ons op via #{link_to 'hallo@surprisedinner.nl', 'mailto:hallo@surprisedinner.nl'}".html_safe
+  p = "Boekings-code: #{@booking.token}"
+
+= link_to 'Keer terug naar de homepage', root_path

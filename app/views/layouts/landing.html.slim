@@ -1,0 +1,10 @@
+doctype html
+html
+  = render 'layouts/partials/head'
+
+  body.landing
+    main
+      .container
+        = yield
+
+    = render 'layouts/partials/footer'

@@ -1,0 +1,21 @@
+panel i18n_context 'city.intro' do
+  columns do
+    column do
+      panel i18n_context 'city.bookings_per_city.title' do
+        pie_chart bookings_per_city, donut: true
+      end
+    end
+    column do
+      panel i18n_context 'city.restaurants_per_city.title' do
+        pie_chart restaurants_per_city, donut: true
+      end
+    end
+    column do
+      panel i18n_context 'city.profit_per_city.title' do
+        column_chart profit_per_city,
+                     xtitle: i18n_context('city.profit_per_city.xtitle'),
+                     ytitle: i18n_context('city.profit_per_city.ytitle')
+      end
+    end
+  end
+end

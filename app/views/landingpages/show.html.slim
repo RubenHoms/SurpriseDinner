@@ -1,0 +1,20 @@
+.row
+  .col-sm-8.col-md-offset-2
+    .landing-box
+      = image_tag 'logo-large.png', class: 'logo'
+      p Waar je eet en wat je eet is een verrassing. We zijn bezig met een beta test om iedereen straks van de beste eetervaring te voorzien. Meedoen aan onze beta test? Dat kan!
+      = button_to 'Naar de beta site', 'https://beta.surprisedinner.nl', method: :get, class: 'btn btn-primary input-lg'
+      hr
+      p Toch liever even wachten totdat we live zijn? Geen probleem, laat je emailadres achter dan laten we je weten wanneer we live zijn.
+      = form_tag 'https://surprisedinner.us11.list-manage.com/subscribe/post?u=e8d50b0bffeab681064a6c179&amp;id=9d92629f7b', class: 'form-inline' do
+        .form-group
+          = text_field_tag 'EMAIL', nil, class: 'form-control input-lg', placeholder: 'Vul je e-mailadres in'
+
+        .form-group
+          = button_tag 'Verstuur', class: 'btn btn-primary input-lg', type: 'submit'
+
+      em Feeding curiosity.
+      p.social-media
+        = link_to content_tag(:i, nil, class: 'fa fa-facebook-square'), 'https://www.facebook.com/surprisedinner', target: '_blank'
+        = link_to content_tag(:i, nil, class: 'fa fa-twitter-square'), 'https://twitter.com/_surprisedinner', target: '_blank'
+        = link_to content_tag(:i, nil, class: 'fa fa-instagram'), 'https://www.instagram.com/surprisedinner/', target: '_blank'

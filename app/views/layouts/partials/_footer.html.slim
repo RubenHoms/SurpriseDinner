@@ -1,0 +1,34 @@
+- cache 'footer' do
+  footer
+    - unless defined?(minimal) && minimal
+      .footer-blocks
+        .container
+          .row
+            .col-sm-4
+              h4 Algemeen
+              ul.list-unstyled
+                li = link_to 'FAQ', '/veelgestelde-vragen', title: 'FAQ'
+                li = link_to 'Algemene voorwaarden', '#', title: 'Algemene voorwaarden'
+                li = link_to 'Privacybeleid', '#', title: 'Privacybeleid'
+                li = link_to 'Over Surprise Dinner', bedrijfs_informatie_path, title: 'Over Surprise Dinner'
+
+            .col-sm-4
+              h4 Social media
+              p.social-media
+                = link_to content_tag(:i, nil, class: 'fa fa-facebook-square'), 'https://www.facebook.com/surprisedinner', target: '_blank', title: 'Facebook'
+                = link_to content_tag(:i, nil, class: 'fa fa-twitter-square'), 'https://twitter.com/_surprisedinner', target: '_blank', title: 'Twitter'
+                = link_to content_tag(:i, nil, class: 'fa fa-instagram'), 'https://www.instagram.com/surprisedinner/', target: '_blank', title: 'Instagram'
+
+            .col-sm-4
+              h4 Contact
+              ul.list-unstyled
+                li 050 211 2595
+                li Surprise Dinner
+                li Turfmarkt 11
+                li 8911 KS Leeuwarden
+
+    p.text-center== "&copy; #{Time.now.year} Surprise Dinner - #{link_to 'hallo@surprisedinner.nl', 'mailto:hallo@surprisedinner.nl', title: 'Mail ons'}"
+    = render 'layouts/partials/feedback_button'
+    = render 'layouts/partials/analytics'
+    = render 'layouts/partials/hotjar'
+    = render 'layouts/partials/facebook_pixel'

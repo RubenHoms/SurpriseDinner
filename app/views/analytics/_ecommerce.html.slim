@@ -1,0 +1,15 @@
+javascript:
+    $(document).ready(function() {
+        ga('require', 'ecommerce');
+        ga('ecommerce:addTransaction', {
+            'id': '#{{booking.id}}',
+            'revenue': '#{{booking.total_price.to_s}}'
+        });
+        ga('ecommerce:addItem', {
+            'id': '#{{booking.id}}',
+            'name': "#{{booking.package_name}}",
+            'price': '#{{booking.package_price.to_s}}',
+            'quantity': '#{{booking.persons}}'
+        });
+        ga('ecommerce:send');
+    });

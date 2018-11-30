@@ -1,0 +1,13 @@
+@bookings_today = Booking.on_date(DateTime.now).completed
+panel i18n_context 'today.intro' do
+  if @bookings_today.any?
+    h2 i18n_context 'today.bookings_intro'
+    ul do
+      @bookings_today.each do |booking|
+        li booking_description(booking)
+      end
+    end
+  else
+    h2 i18n_context 'today.no_bookings'
+  end
+end

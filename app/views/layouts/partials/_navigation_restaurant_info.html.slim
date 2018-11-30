@@ -1,0 +1,21 @@
+- cache 'navigation' do
+  nav.navbar.navbar-inverse.navbar-static-top
+    .container
+      .navbar-header
+        = link_to image_tag('restaurant_info/sd-logo-black.png'), '/', class: 'navbar-brand', alt: 'Surprise Dinner logo', title: 'Home'
+        button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false"
+          span.sr-only Toon menu
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+      #main-navigation.navbar-collapse.collapse.navbar-right
+        ul.nav.navbar-nav
+          li.home
+            = link_to root_path, class: ('active' if current_page?(root_url)), title: 'Home' do
+              span Home
+
+          li= link_to "Thema's", packages_path, title: "Thema's"
+          li= link_to 'Hoe het werkt', hoe_het_werkt_path, title: 'Hoe het werkt'
+          li= link_to 'FAQ', faqs_path, title: 'FAQ'
+          li= link_to 'Voor restauranthouders', restaurant_info_path, title: 'Voor restauranthouders'

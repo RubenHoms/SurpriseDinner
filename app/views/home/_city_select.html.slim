@@ -1,0 +1,5 @@
+.city-select
+  = form_tag '/boeken', class: 'form-inline' do
+    .form-group
+      = select_tag 'city', options_for_select(city_select_values), class: 'selectpicker', prompt: 'Kies je stad', required: true
+      = button_tag 'GO', class: "btn #{button_class}", type: 'submit', title: 'Go'

@@ -1,0 +1,7 @@
+- cache package do
+  li.col-md-4
+    = image_tag package.image(:normal), alt: package.name
+
+    .package-details
+      .bottom
+        = link_to package.name, "/themas##{package.name.parameterize}", class: 'btn btn-info', title: package.name

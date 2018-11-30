@@ -1,0 +1,10 @@
+doctype html
+html
+  = render 'layouts/partials/head'
+  body
+    .navbar-restaurant-info
+      = render 'layouts/partials/navigation_restaurant_info'
+    = yield
+    = javascript_include_tag 'application'
+
+    = render 'layouts/partials/footer'

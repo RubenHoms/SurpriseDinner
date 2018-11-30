@@ -1,0 +1,15 @@
+doctype html
+html
+  = render 'layouts/partials/head'
+
+  body style=("background: url(#{@map_image}) no-repeat top center" if @map_image)
+    main.full-height
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2
+            .row
+              .col-sm-12.col-md-8.col-md-offset-2
+                = flash_messages
+                = yield
+
+    = javascript_include_tag 'application'

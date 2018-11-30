@@ -1,0 +1,28 @@
+= render 'map/js_includes'
+javascript:
+  $(document).ready(function() {
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    var directionsService = new google.maps.DirectionsService();
+
+    function calcRoute(from_lat, from_lng, to_lat, to_lng) {
+      var origin = new google.maps.LatLng(from_lat, from_lng);
+      var destination = new google.maps.LatLng(to_lat, to_lng);
+      var request = {
+        origin: origin,
+        destination: destination,
+        travelMode: google.maps.TravelMode.WALKING
+      };
+      directionsService.route(request, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        }
+      });
+    }
+
+    calcRoute(#{{from.latitude}}, #{{from.longitude}}, #{{to.latitude}}, #{{to.longitude}});
+
+    var handler = Gmaps.build('Google');
+    handler.buildMap({internal: {id: 'map'}}, function () {
+      directionsDisplay.setMap(handler.getMap());
+    });
+  });
