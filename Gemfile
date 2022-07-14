@@ -65,7 +65,7 @@ gem 'wicked'
 
 # File uploading
 gem 'paperclip'
-gem 'paperclip-optimizer', github: 'RubenHoms/paperclip-optimizer'
+gem 'paperclip-optimizer'
 gem 'aws-sdk'
 
 # Monitoring

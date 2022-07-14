@@ -14,7 +14,7 @@ Once you have those prerequisites installed it's time to get the application up 
 * Edit the `secrets.yml` and `application.yml` file with your own secrets.
 * Run `rails server` to startup the server.
 
-Your development server should now be up-and-running and you can view it at `http://lvm.me:3000`
+Your development server should now be up-and-running and you can view it at `http://localhost:3000`
 
 Now... get working you lazy slacker!
 

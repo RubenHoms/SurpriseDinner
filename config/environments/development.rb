@@ -53,4 +53,7 @@ Rails.application.configure do
       port: 1025
   }
   config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
+
+  # Disable ImageOptim for dev env
+  config.assets.image_optim = false
 end

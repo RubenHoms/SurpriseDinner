@@ -41,7 +41,7 @@ class Package < ActiveRecord::Base
     content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
   }
   validate :feature_limit_reached
-  validate :selling_point_limits
+  #validate :selling_point_limits
 
   private
 
